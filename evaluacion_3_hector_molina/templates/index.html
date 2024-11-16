@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Bienvenido estimado cliente</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+
+        body {
+            font-family: 'Uncial Antiqua', cursive;
+            background: url('/static/images/fondo_inicio.jpg') no-repeat center center/cover;
+            color: #ffd700;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-shadow: 0 0 10px #000, 0 0 20px #ffd700;
+        }
+
+        .button-container {
+            margin-top: 30px;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #8b0000;
+            padding: 15px 30px;
+            margin: 10px;
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .button-container a:hover {
+            background-color: #a52a2a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido estimado cliente</h1>
+    <div class="button-container">
+        <a href="/Ejercicio_1">Ejercicio 1</a>
+        <a href="/Ejercicio_2">Ejercicio 2</a>
+    </div>
+</body>
+</html>

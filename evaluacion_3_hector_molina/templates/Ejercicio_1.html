@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Formulario de notas</title>
+    <style>
+        /* Importar fuente */
+        @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Merriweather&display=swap');
+
+        /* Fondo de la página */
+        body {
+            font-family: 'Merriweather', serif;
+            background: url('/static/images/fondo_ejercicio1.jpg') no-repeat center center/cover;
+            color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Contenedor del formulario */
+        .form-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 25px 35px;
+            border-radius: 10px;
+            border: 5px solid #c4a484;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Título */
+        h2 {
+            font-family: 'Uncial Antiqua', cursive;
+            color: #ffd700;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #000, 0 0 20px #ffd700;
+        }
+
+        /* Etiquetas */
+        label {
+            display: block;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            color: #fff;
+        }
+
+        /* Campos de entrada */
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #c4a484;
+            border-radius: 5px;
+            background-color: #1f1f1f;
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        /* Botón de envío */
+        button {
+            background-color: #8b0000;
+            color: #fff;
+            border: 2px solid #ffd700;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            text-shadow: 0 0 5px #000;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #a52a2a;
+        }
+
+        /* Mensaje de resultado */
+        footer {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 6px;
+            border: 3px solid #ffd700;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            color: #ffd700;
+            font-family: 'Merriweather', serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Formulario de notas</h2>
+        <form method="POST">
+            <label for="nota1">Nota 1 (10-70):</label>
+            <input type="number" id="nota1" name="nota1" min="10" max="70" required>
+
+            <label for="nota2">Nota 2 (10-70):</label>
+            <input type="number" id="nota2" name="nota2" min="10" max="70" required>
+
+            <label for="nota3">Nota 3 (10-70):</label>
+            <input type="number" id="nota3" name="nota3" min="10" max="70" required>
+
+            <label for="asistencia">Asistencia (0-100):</label>
+            <input type="number" id="asistencia" name="asistencia" min="0" max="100" required>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    {% if promedio is not none and estado is not none %}
+    <footer>
+        <p>Promedio: {{ promedio|round(2) }}</p>
+        <p>Estado: {{ estado }}</p>
+    </footer>
+    {% endif %}
+
+    {% if error is not none %}
+    <footer>
+        <p>{{ error }}</p>
+    </footer>
+    {% endif %}
+</body>
+</html>
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Formulario de Nombres</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Merriweather&display=swap');
+
+        body {
+            font-family: 'Merriweather', serif;
+            background: url('/static/images/fondo_ejercicio2.jpg') no-repeat center center/cover;
+            color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 25px 35px;
+            border-radius: 10px;
+            border: 5px solid #c4a484;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-family: 'Uncial Antiqua', cursive;
+            color: #ffd700;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #000, 0 0 20px #ffd700;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            color: #fff;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #c4a484;
+            border-radius: 5px;
+            background-color: #1f1f1f;
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        button {
+            background-color: #8b0000;
+            color: #fff;
+            border: 2px solid #ffd700;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            text-shadow: 0 0 5px #000;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #a52a2a;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 6px;
+            border: 3px solid #ffd700;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            color: #ffd700;
+            font-family: 'Merriweather', serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Formulario de Nombres</h2>
+        <form method="POST">
+            <label for="nombre1">Nombre 1:</label>
+            <input type="text" id="nombre1" name="nombre1" required>
+
+            <label for="nombre2">Nombre 2:</label>
+            <input type="text" id="nombre2" name="nombre2" required>
+
+            <label for="nombre3">Nombre 3:</label>
+            <input type="text" id="nombre3" name="nombre3" required>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    {% if nombre_mas_largo is not none %}
+    <footer>
+        <p>Nombre más largo: {{ nombre_mas_largo }}</p>
+        <p>Longitud: {{ longitud }}</p>
+    </footer>
+    {% endif %}
+
+    {% if error is not none %}
+    <footer>
+        <p>{{ error }}</p>
+    </footer>
+    {% endif %}
+</body>
+</html>
